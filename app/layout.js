@@ -17,7 +17,7 @@ export const merriweather = Merriweather({
   weight: ["400", "700"],
 });
 
-const metadata = {
+export const metadata = {
   title: "Srivatsa Charitable Trust",
   description: "Creating opportunities for those in need.",
 };

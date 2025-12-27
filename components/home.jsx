@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "./navbar";
-import { Faqs } from "./faqs";
 import { motion, useInView } from "framer-motion"; 
 import { useRef, useState } from "react";
 import AnimatedText from "./ui/animatedtext";
