@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: "About" },
-    { href: "/projects", label: "Projects" },
+    { href: "/sustainabledevelopmentproject.pdf", label: "Projects", download: "sustainabledevelopmentproject.pdf" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -49,15 +49,28 @@ export default function Navbar() {
           {/* Right side - Links */}
           <div className="hidden md:flex lg:space-x-20 px-8 font-mono font-semibold">
             {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`${
-                  pathname === link.href ? "text-slate-900" : "text-slate-500"
-                } hover:text-slate-900`}
-              >
-                {link.label}
-              </Link>
+              link.download ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  download={link.download}
+                  className={`${
+                    pathname === link.href ? "text-slate-900" : "text-slate-500"
+                  } hover:text-slate-900`}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`${
+                    pathname === link.href ? "text-slate-900" : "text-slate-500"
+                  } hover:text-slate-900`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </div>
 
@@ -103,18 +116,34 @@ export default function Navbar() {
         {/* Sidebar Links */}
         <nav className="flex flex-col p-6 space-y-6">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={closeSidebar}
-              className={`${
-                pathname === link.href
-                  ? "text-slate-900 font-bold border-l-4 border-purple-950 pl-4"
-                  : "text-slate-500 pl-4"
-              } font-mono text-lg hover:text-slate-900 hover:border-l-4 hover:border-purple-950 transition-all`}
-            >
-              {link.label}
-            </Link>
+            link.download ? (
+              <a
+                key={link.href}
+                href={link.href}
+                download={link.download}
+                onClick={closeSidebar}
+                className={`${
+                  pathname === link.href
+                    ? "text-slate-900 font-bold border-l-4 border-purple-950 pl-4"
+                    : "text-slate-500 pl-4"
+                } font-mono text-lg hover:text-slate-900 hover:border-l-4 hover:border-purple-950 transition-all`}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeSidebar}
+                className={`${
+                  pathname === link.href
+                    ? "text-slate-900 font-bold border-l-4 border-purple-950 pl-4"
+                    : "text-slate-500 pl-4"
+                } font-mono text-lg hover:text-slate-900 hover:border-l-4 hover:border-purple-950 transition-all`}
+              >
+                {link.label}
+              </Link>
+            )
           ))}
         </nav>
 
